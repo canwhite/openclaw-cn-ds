@@ -1,0 +1,53 @@
+title: "Moltbot 文档"
+description: "Moltbot (原 Clawdbot) - TypeScript/Node 网关 + macOS/iOS/Android 客户端，支持 WhatsApp (网页版) 和 Telegram (机器人)。支持自定义 AI 供应商，兼容 OpenAI API。"
+markdown: kramdown
+highlighter: rouge
+
+# Keep GitHub Pages' default page URLs (e.g. /gateway.html). Many docs links
+# are written as relative *.md links and are rewritten during the build.
+
+plugins:
+  - jekyll-relative-links
+
+relative_links:
+  enabled: true
+  collections: true
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
+
+nav:
+  - title: "首页"
+    url: "/"
+  - title: "Moltbot 助手"
+    url: "/start/clawd/"
+  - title: "Gateway"
+    url: "/gateway/"
+  - title: "Remote"
+    url: "/gateway/remote/"
+  - title: "Discovery"
+    url: "/gateway/discovery/"
+  - title: "Configuration"
+    url: "/gateway/configuration/"
+  - title: "WebChat"
+    url: "/web/webchat/"
+  - title: "macOS App"
+    url: "/platforms/macos/"
+  - title: "iOS App"
+    url: "/platforms/ios/"
+  - title: "Android App"
+    url: "/platforms/android/"
+  - title: "Telegram"
+    url: "/channels/telegram/"
+  - title: "Security"
+    url: "/gateway/security/"
+  - title: "Troubleshooting"
+    url: "/gateway/troubleshooting/"
+
+kramdown:
+  input: GFM
+  hard_wrap: false
+  syntax_highlighter: rouge
