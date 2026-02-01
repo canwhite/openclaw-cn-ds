@@ -1,4 +1,4 @@
-# 🧞 Moltbot 中文版 (OpenClaw-CN-DS)
+# 🧞 OpenClaw-CN-DS
 
 **私有化部署的 AI 智能助手，完整中文本地化。**
 
@@ -128,6 +128,66 @@ docker compose logs -f clawdbot-gateway
 
 ---
 
+## 🎨 访问 Control UI
+
+### 方法一：使用 Token URL（最简单）⭐
+
+#### 1. 查看 Token
+
+```bash
+# 方法 1：查看配置文件
+cat data/config/clawdbot.json | grep token
+
+# 方法 2：使用 CLI
+docker exec -it openclaw-cn-ds-clawdbot-gateway-1 \
+  node dist/index.js config get gateway.auth.token
+```
+
+输出示例：
+
+```
+"token": "xxxx"
+```
+
+#### 2. 使用带 Token 的 URL 访问
+
+在浏览器中打开：
+
+```
+http://localhost:18789/?token=YOUR_TOKEN_HERE
+```
+
+**完整示例**：
+
+```
+http://localhost:18789/?token=xxx
+```
+
+✅ **第一次访问后，Token 会自动保存到浏览器，下次无需再带参数。**
+
+---
+
+### 方法二：使用 CLI 命令
+
+```bash
+docker exec -it openclaw-cn-ds-clawdbot-gateway-1 \
+  node dist/index.js dashboard
+```
+
+这会自动在浏览器中打开带 Token 的 URL。
+
+---
+
+### 方法三：在 UI 中手动输入
+
+1. 访问：`http://localhost:18789`
+2. 页面会提示需要身份验证
+3. 找到设置页面（⚙️ 图标）
+4. 在 Token 输入框中粘贴您的 Token
+5. 点击连接
+
+---
+
 ### api请求
 
 #### curl
@@ -201,66 +261,6 @@ client = ClawdbotClient()
 result = client.chat("分析今天的科技新闻")
 print(result)
 ```
-
----
-
-## 🎨 访问 Control UI
-
-### 方法一：使用 Token URL（最简单）⭐
-
-#### 1. 查看 Token
-
-```bash
-# 方法 1：查看配置文件
-cat data/config/clawdbot.json | grep token
-
-# 方法 2：使用 CLI
-docker exec -it openclaw-cn-ds-clawdbot-gateway-1 \
-  node dist/index.js config get gateway.auth.token
-```
-
-输出示例：
-
-```
-"token": "xxxx"
-```
-
-#### 2. 使用带 Token 的 URL 访问
-
-在浏览器中打开：
-
-```
-http://localhost:18789/?token=YOUR_TOKEN_HERE
-```
-
-**完整示例**：
-
-```
-http://localhost:18789/?token=xxx
-```
-
-✅ **第一次访问后，Token 会自动保存到浏览器，下次无需再带参数。**
-
----
-
-### 方法二：使用 CLI 命令
-
-```bash
-docker exec -it openclaw-cn-ds-clawdbot-gateway-1 \
-  node dist/index.js dashboard
-```
-
-这会自动在浏览器中打开带 Token 的 URL。
-
----
-
-### 方法三：在 UI 中手动输入
-
-1. 访问：`http://localhost:18789`
-2. 页面会提示需要身份验证
-3. 找到设置页面（⚙️ 图标）
-4. 在 Token 输入框中粘贴您的 Token
-5. 点击连接
 
 ---
 
